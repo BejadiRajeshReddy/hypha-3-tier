@@ -3,8 +3,8 @@ const app = express();
 const AWS = require('aws-sdk');
 const fs = require('fs');
 
-AWS.config.region = 'ap-south-1';
-const lambda = new AWS.Lambda({ region: 'ap-south-1' });
+AWS.config.region = 'us-east-1';
+const lambda = new AWS.Lambda({ region: 'us-east-1' });
 
 app.use(express.json());
 
@@ -20,7 +20,8 @@ app.post('/submit', (req, res) => {
   console.log("Payload:", payload);
 
   const params = {
-    FunctionName: 'form',
+    // form is the lambda function name
+    FunctionName: 'form',                                 
     InvocationType: 'RequestResponse',
     Payload: JSON.stringify(payload)
   };
