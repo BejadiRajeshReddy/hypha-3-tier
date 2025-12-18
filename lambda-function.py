@@ -7,7 +7,7 @@ def lambda_handler(event, context):
     last_name = event['lastName']
     
     # Initialize DynamoDB client
-    dynamodb = boto3.resource('dynamodb', region_name='ap-south-1')
+    dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
     table_name = 'webapp'
     table = dynamodb.Table(table_name)
     
